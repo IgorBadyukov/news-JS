@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4f88bb2-6c1b-4941-952f-ed202b46a8ed" name="Changes" comment="feat: add something change">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/controller/appLoader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/controller/controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/controller/loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view/appView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view/news/news.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view/news/news.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view/sources/sources.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view/sources/sources.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.dev.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.prod.config.js" beforeDir="false" />
-    </list>
+    <list default="true" id="a4f88bb2-6c1b-4941-952f-ed202b46a8ed" name="Changes" comment="feat: finish task" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +66,7 @@
       <workItem from="1656857622258" duration="18142000" />
       <workItem from="1656878626821" duration="66000" />
       <workItem from="1656883341042" duration="20000" />
-      <workItem from="1656920842945" duration="13806000" />
+      <workItem from="1656920842945" duration="14084000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add something change">
       <created>1656857449835</created>
@@ -95,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656857449835</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: finish task">
+      <created>1656946412538</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656946412538</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add something change" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add something change" />
+    <MESSAGE value="feat: finish task" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: finish task" />
   </component>
 </project>
