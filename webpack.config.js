@@ -1,38 +1,72 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
-const baseConfig = {
-    entry: path.resolve(__dirname, './src/index.js'),
-    mode: 'development',
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
-        ],
+const esLintPlugin = (isDev) => (!isDev ? [] : [new ESLintPlugin({ extensions: ['ts, js'] })]);
+
+const devServer = (isDev) => (!isDev ? {}
+  : {
+    devServer: {
+      open: true,
+      hot: true,
+      port: 8080,
     },
-    resolve: {
-        extensions: ['.js'],
-    },
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
-            filename: 'index.html',
-        }),
-        new CleanWebpackPlugin(),
+  });
+
+module.exports = ({ develop }) => ({
+  mode: develop ? 'development' : 'production',
+  devtool: develop ? 'inline-source-map' : false,
+  entry: {
+    app: './src/index.ts',
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: 'assets/img/[name][ext]',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.[tj]s$/,
+        use: 'ts-loader',
+        include: [path.resolve(__dirname, 'src')],
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
     ],
-};
-
-module.exports = ({ mode }) => {
-    const isProductionMode = mode === 'prod';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
-
-    return merge(baseConfig, envConfig);
-};
+  },
+  resolve: {
+    extensions: ['.js', '.ts'],
+  },
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: './src/index.html',
+    }),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: true }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './public',
+        },
+      ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }),
+    ...esLintPlugin(develop),
+  ],
+  ...devServer(develop),
+});
