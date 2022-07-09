@@ -16,7 +16,7 @@ export class App {
     document
       .querySelector('.sources')!
       .addEventListener('click', (e: Event) => this.controller
-        .getNews(e, (data: IData<string> | undefined) => this.view.drawNews(data as IData<string>)));
-    this.controller.getSources((data: ISource<string> | undefined) => this.view.drawSources(data as ISource<string>));
+        .getNews(e, (data: IData | undefined) => this.view.drawNews(data as IData)));
+    this.controller.getSources((data: ISource | undefined) => this.view.drawSources(data as ISource));
   }
 }

@@ -1,19 +1,19 @@
 import { ISourceData } from './sources';
 
-export interface INewsData<T> {
-  author: T;
-  content: T;
-  description: T;
-  publishedAt: T;
-  source: Pick<ISourceData<T>, 'id' | 'name'>
-  title: T;
-  url: T;
-  urlToImage: T;
+export interface INewsData {
+  author: string;
+  content: string;
+  description: string;
+  publishedAt: string;
+  source: Pick<ISourceData<string>, 'id' | 'name'>
+  title: string;
+  url: string;
+  urlToImage: string;
 }
 
 export class News {
   // eslint-disable-next-line class-methods-use-this
-  draw(data: [INewsData<string>]) {
+  draw(data: [INewsData]) {
     const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
     const fragment = document.createDocumentFragment();
