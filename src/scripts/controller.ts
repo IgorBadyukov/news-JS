@@ -5,7 +5,7 @@ import { IData, ISource } from './appView';
 import { IEndpoint } from './loader';
 
 export class AppController extends AppLoader {
-  getSources(callback: (data?: ISource<string>) => void) {
+  getSources(callback: (data?: ISource) => void) {
     super.getResp(
       {
         endpoint: 'sources',
@@ -15,7 +15,7 @@ export class AppController extends AppLoader {
     );
   }
 
-  getNews(e: Event, callback: (data?: IData<string>) => void) {
+  getNews(e: Event, callback: (data?: IData) => void) {
     let target = e.target as HTMLElement;
     const newsContainer = e.currentTarget as HTMLElement;
     while (target !== newsContainer) {

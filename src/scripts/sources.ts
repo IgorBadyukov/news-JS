@@ -1,11 +1,7 @@
 export interface ISourceData<T> {
-  category: T;
-  country: T;
-  description: T;
-  id: T;
-  language: T;
-  name: T;
-  url: T;
+  id: string;
+  name: string;
+  url?: T;
 }
 
 export class Sources {

@@ -1,14 +1,14 @@
 import { News, INewsData } from './news';
 import { Sources, ISourceData } from './sources';
 
-export interface IData<T> {
-  status: T;
+export interface IData {
+  status: string;
   totalResults: number;
-  articles: [INewsData<T>];
+  articles: [INewsData];
 }
-export interface ISource<T> {
-  status: T;
-  sources: [ISourceData<T>];
+export interface ISource {
+  status: string;
+  sources: [ISourceData<string>];
 }
 
 export class AppView {
@@ -21,12 +21,12 @@ export class AppView {
     this.sources = new Sources();
   }
 
-  drawNews(data: IData<string>) {
+  drawNews(data: IData) {
     const values = data.articles;
     this.news.draw(values);
   }
 
-  drawSources(data: ISource<string>) {
+  drawSources(data: ISource) {
     const values = data.sources;
     this.sources.draw(values);
   }

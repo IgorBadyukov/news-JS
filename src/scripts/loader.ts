@@ -7,7 +7,7 @@ export interface IEndpoint {
   };
 }
 
-type Data<T> = IData<T> | ISource<T>;
+type Data = IData | ISource;
 
 export type Option = {
   [key: string]: string;
@@ -53,11 +53,11 @@ export class Loader {
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: (data?: IData<string>) => void, options: Option = {}) {
+  load(method: string, endpoint: string, callback: (data?: IData) => void, options: Option = {}) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
-      .then((data: Data<string>) => callback(data as IData<string>))
+      .then((data: Data) => callback(data as IData))
       // eslint-disable-next-line no-console
       .catch((err: Error) => console.error(err));
   }
